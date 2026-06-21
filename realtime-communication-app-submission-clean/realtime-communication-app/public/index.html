@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-Time Communication App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <section id="authPage" class="auth-page">
+      <div class="auth-card">
+        <h1>Real-Time Communication App</h1>
+        <p class="subtitle">Video conferencing, screen sharing, files and whiteboard collaboration</p>
+
+        <div class="tabs">
+          <button id="loginTab" class="tab active">Login</button>
+          <button id="registerTab" class="tab">Register</button>
+        </div>
+
+        <form id="authForm">
+          <div id="nameGroup" class="input-group hidden">
+            <label for="nameInput">Name</label>
+            <input id="nameInput" type="text" placeholder="Enter your name" />
+          </div>
+
+          <div class="input-group">
+            <label for="emailInput">Email</label>
+            <input id="emailInput" type="email" placeholder="Enter email" required />
+          </div>
+
+          <div class="input-group">
+            <label for="passwordInput">Password</label>
+            <input id="passwordInput" type="password" placeholder="Enter password" required />
+          </div>
+
+          <button id="authSubmitBtn" type="submit" class="primary-btn">Login</button>
+        </form>
+
+        <p id="authMessage" class="message"></p>
+
+        <div class="note">
+          <strong>Demo note:</strong> This project uses JWT authentication. User data is stored in server memory for quick internship demo.
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboardPage" class="dashboard-page hidden">
+      <nav class="topbar">
+        <div>
+          <h2>Communication Dashboard</h2>
+          <p id="welcomeText">Welcome</p>
+        </div>
+        <button id="logoutBtn" class="danger-btn">Logout</button>
+      </nav>
+
+      <div class="dashboard-grid">
+        <div class="join-card">
+          <h3>Create / Join Meeting</h3>
+          <p>Enter any room ID. Share the same room ID with another user to test video calling.</p>
+
+          <div class="input-group">
+            <label for="roomInput">Room ID</label>
+            <input id="roomInput" type="text" placeholder="Example: project-room-101" />
+          </div>
+
+          <button id="joinBtn" class="primary-btn">Start Meeting</button>
+
+          <div class="security-box">
+            <h4>Security Used</h4>
+            <ul>
+              <li>JWT token based login</li>
+              <li>Socket.io authentication</li>
+              <li>WebRTC media encryption using DTLS-SRTP</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="calls-card">
+          <div class="calls-card-header">
+            <div>
+              <h3>Available Calls</h3>
+              <p>Select a meeting and join instantly.</p>
+            </div>
+            <button id="refreshCallsBtn" class="secondary-btn">Refresh</button>
+          </div>
+
+          <div class="calls-section">
+            <h4>Scheduled Meetings</h4>
+            <div id="scheduledCallsList" class="calls-list"></div>
+          </div>
+
+          <div class="calls-section">
+            <h4>Recently Joined Calls</h4>
+            <div id="recentCallsList" class="calls-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="meetingPage" class="meeting-page hidden">
+      <header class="meeting-header">
+        <div>
+          <h2>Meeting Room</h2>
+          <p id="roomLabel">Room:</p>
+        </div>
+        <div class="meeting-status">
+          <span id="participantCount">Participants: 1</span>
+          <span class="secure-badge">Encrypted Media</span>
+        </div>
+      </header>
+
+      <div class="meeting-layout">
+        <section class="video-section">
+          <div id="videos" class="videos">
+            <div class="video-card local-card">
+              <video id="localVideo" autoplay muted playsinline></video>
+              <div class="video-name">You</div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="toggleMicBtn">Mute</button>
+            <button id="toggleCameraBtn">Camera Off</button>
+            <button id="screenShareBtn">Share Screen</button>
+            <button id="whiteboardBtn">Whiteboard</button>
+            <button id="leaveBtn" class="danger-btn">Leave</button>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <div class="panel-tabs">
+            <button id="chatTab" class="panel-tab active">Chat</button>
+            <button id="filesTab" class="panel-tab">Files</button>
+          </div>
+
+          <div id="chatPanel" class="panel-content">
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input">
+              <input id="chatInput" type="text" placeholder="Type message..." />
+              <button id="sendChatBtn">Send</button>
+            </div>
+          </div>
+
+          <div id="filesPanel" class="panel-content hidden">
+            <input id="fileInput" type="file" />
+            <button id="uploadFileBtn" class="primary-btn small-btn">Upload File</button>
+            <div id="filesList" class="files-list"></div>
+          </div>
+        </aside>
+      </div>
+
+      <div id="whiteboardModal" class="whiteboard-modal hidden">
+        <div class="whiteboard-box">
+          <div class="whiteboard-header">
+            <h3>Collaborative Whiteboard</h3>
+            <div>
+              <input id="penColor" type="color" value="#111827" />
+              <input id="penSize" type="range" min="1" max="12" value="3" />
+              <button id="clearBoardBtn">Clear</button>
+              <button id="closeBoardBtn" class="danger-btn">Close</button>
+            </div>
+          </div>
+          <canvas id="whiteboardCanvas"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

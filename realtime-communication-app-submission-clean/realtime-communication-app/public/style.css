@@ -1,0 +1,538 @@
+:root {
+  --bg: #eef4ff;
+  --card: #ffffff;
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --danger: #dc2626;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #dbe3f0;
+  --dark: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #dbeafe, #f8fafc);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.auth-page,
+.dashboard-page,
+.meeting-page {
+  min-height: 100vh;
+}
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  background: var(--card);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+.auth-card h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.tabs,
+.panel-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tab,
+.panel-tab {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  padding: 11px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.tab.active,
+.panel-tab.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 700;
+}
+
+.input-group input,
+.chat-input input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  font-size: 15px;
+}
+
+.input-group input:focus,
+.chat-input input:focus {
+  border-color: var(--primary);
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-btn {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: var(--primary-dark);
+}
+
+.danger-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.small-btn {
+  padding: 10px 14px;
+  margin-top: 10px;
+}
+
+.message {
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.note,
+.security-box {
+  margin-top: 18px;
+  padding: 14px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  color: #1e3a8a;
+  font-size: 14px;
+}
+
+.topbar,
+.meeting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 34px;
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.topbar h2,
+.meeting-header h2 {
+  margin: 0;
+}
+
+.topbar p,
+.meeting-header p {
+  margin: 5px 0 0;
+  color: var(--muted);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 22px;
+  padding: 34px;
+}
+
+.join-card,
+.calls-card {
+  background: white;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+}
+
+.security-box ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.calls-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.calls-card-header h3 {
+  margin: 0;
+}
+
+.calls-card-header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.secondary-btn {
+  background: #e0ecff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.calls-section {
+  margin-top: 18px;
+}
+
+.calls-section h4 {
+  margin: 0 0 12px;
+}
+
+.calls-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.call-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.call-info {
+  min-width: 0;
+}
+
+.call-title {
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.call-meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.call-room {
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+.join-call-btn {
+  background: var(--primary);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.empty-calls {
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  color: var(--muted);
+  background: #f8fafc;
+  text-align: center;
+}
+
+.meeting-layout {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  height: calc(100vh - 91px);
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.videos {
+  flex: 1;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  overflow: auto;
+  background: #0f172a;
+}
+
+.video-card {
+  position: relative;
+  background: #020617;
+  border-radius: 18px;
+  min-height: 220px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 220px;
+  background: #020617;
+}
+
+.video-name {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(15, 23, 42, 0.75);
+  color: white;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+  background: white;
+  border-top: 1px solid var(--border);
+  justify-content: center;
+}
+
+.controls button {
+  background: #e5e7eb;
+}
+
+.controls .danger-btn {
+  background: var(--danger);
+}
+
+.side-panel {
+  background: white;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.side-panel .panel-tabs {
+  padding: 14px;
+  margin-bottom: 0;
+}
+
+.panel-content {
+  padding: 14px;
+  flex: 1;
+  min-height: 0;
+}
+
+.chat-messages {
+  height: calc(100vh - 235px);
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  background: #f8fafc;
+  margin-bottom: 12px;
+}
+
+.chat-message {
+  margin-bottom: 12px;
+  padding: 10px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.chat-message strong {
+  color: var(--primary);
+}
+
+.chat-message span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input button {
+  background: var(--primary);
+  color: white;
+}
+
+.files-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-item {
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  word-break: break-word;
+}
+
+.file-item a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.meeting-status {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.secure-badge {
+  background: #dcfce7;
+  color: #166534;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.whiteboard-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 99;
+}
+
+.whiteboard-box {
+  width: min(1000px, 96vw);
+  height: min(700px, 90vh);
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.whiteboard-header {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.whiteboard-header h3 {
+  margin: 0;
+}
+
+.whiteboard-header div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#whiteboardCanvas {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background: white;
+  cursor: crosshair;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid,
+  .meeting-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .meeting-layout {
+    height: auto;
+  }
+
+  .side-panel {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .chat-messages {
+    height: 250px;
+  }
+
+  .topbar,
+  .meeting-header {
+    padding: 18px;
+    align-items: flex-start;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .dashboard-grid {
+    padding: 18px;
+  }
+
+  .call-item {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .join-call-btn {
+    width: 100%;
+  }
+
+  .videos {
+    min-height: 420px;
+  }
+}

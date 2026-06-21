@@ -1,0 +1,33 @@
+{
+  "name": "mini-social-media-platform",
+  "version": "1.0.0",
+  "description": "Mini social media platform with user profiles, posts, comments, likes and follow system using Express.js and JSON database.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "social-media",
+    "express",
+    "html",
+    "css",
+    "javascript",
+    "internship-project"
+  ],
+  "author": "Internship Task",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Social Media Platform</title>
+  <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <main>
+    <section id="authPage" class="auth-page">
+      <div class="auth-card">
+        <h1>Mini Social Media Platform</h1>
+        <p class="subtitle">Create profiles, share posts, comment, like and follow users.</p>
+
+        <div class="tabs">
+          <button id="loginTab" class="tab active">Login</button>
+          <button id="registerTab" class="tab">Register</button>
+        </div>
+
+        <form id="authForm">
+          <div id="nameGroup" class="input-group hidden">
+            <label for="nameInput">Name</label>
+            <input id="nameInput" type="text" placeholder="Enter your name" />
+          </div>
+
+          <div class="input-group">
+            <label for="emailInput">Email</label>
+            <input id="emailInput" type="email" placeholder="Enter email" required />
+          </div>
+
+          <div class="input-group">
+            <label for="passwordInput">Password</label>
+            <input id="passwordInput" type="password" placeholder="Enter password" required />
+          </div>
+
+          <button id="authSubmitBtn" class="primary-btn" type="submit">Login</button>
+        </form>
+
+        <p id="authMessage" class="message"></p>
+
+        <div class="demo-note">
+          <strong>Demo:</strong> Register two users in two browser tabs to test follow, like and comments.
+        </div>
+      </div>
+    </section>
+
+    <section id="appPage" class="app-page hidden">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon">S</div>
+          <div>
+            <h2>SocialConnect</h2>
+            <p>Mini social app</p>
+          </div>
+        </div>
+
+       <button id="feedNav" class="nav-btn active">
+  <i class="fa-solid fa-house"></i> Feed
+</button>
+
+<button id="profileNav" class="nav-btn">
+  <i class="fa-solid fa-user"></i> My Profile
+</button>
+
+<button id="peopleNav" class="nav-btn">
+  <i class="fa-solid fa-users"></i> People
+</button>
+
+       <button id="logoutBtn" class="logout-btn">
+  <i class="fa-solid fa-right-from-bracket"></i> Logout
+</button>
+      </aside>
+
+      <section class="main-content">
+        <header class="topbar">
+          <div>
+            <h1 id="pageTitle">Feed</h1>
+            <p id="pageSubtitle">See posts from all users</p>
+          </div>
+
+          <div id="currentUserBadge" class="user-badge"></div>
+        </header>
+
+        <section id="feedView" class="view">
+          <div class="create-post-card">
+  <textarea id="postInput" placeholder="What's on your mind?"></textarea>
+
+  <input type="file" id="imageInput" accept="image/*">
+
+  <span>
+    <i class="fa-solid fa-earth-americas"></i>
+    Share your thoughts with everyone
+  </span>
+
+  <button id="createPostBtn" class="primary-btn">Post</button>
+</div>
+          
+
+          <div id="postsList" class="posts-list"></div>
+        </section>
+
+        <section id="profileView" class="view hidden">
+          <div class="profile-card">
+            <div id="profileAvatar" class="profile-avatar">U</div>
+            <div class="profile-info">
+              <h2 id="profileName">User</h2>
+              <p id="profileEmail"></p>
+              <p id="profileBio"></p>
+
+              <div class="profile-stats">
+                <span><strong id="profilePostsCount">0</strong> Posts</span>
+                <span><strong id="profileFollowersCount">0</strong> Followers</span>
+                <span><strong id="profileFollowingCount">0</strong> Following</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="edit-profile-card">
+            <h3>Edit Profile</h3>
+            <div class="input-group">
+              <label for="editNameInput">Name</label>
+              <input id="editNameInput" type="text" placeholder="Your name" />
+            </div>
+            <div class="input-group">
+              <label for="editBioInput">Bio</label>
+              <input id="editBioInput" type="text" placeholder="Short bio" />
+            </div>
+            <div class="input-group">
+              <label for="editAvatarInput">Avatar URL</label>
+              <input id="editAvatarInput" type="text" placeholder="Paste image URL optional" />
+            </div>
+            <button id="saveProfileBtn" class="primary-btn">Save Profile</button>
+          </div>
+
+          <h3 class="section-heading">My Posts</h3>
+          <div id="myPostsList" class="posts-list"></div>
+        </section>
+
+        <section id="peopleView" class="view hidden">
+          <div class="search-card">
+            <input id="userSearchInput" type="text" placeholder="Search users by name or email..." />
+           <button id="searchUsersBtn" class="primary-btn">
+  <i class="fa-solid fa-magnifying-glass"></i> Search
+</button>
+</div>
+          <div id="usersList" class="users-list"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
